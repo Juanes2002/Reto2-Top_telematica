@@ -1,8 +1,13 @@
+from flask.cli import load_dotenv
 import grpc
 from concurrent import futures
 import os
 import archivo_pb2
 import archivo_pb2_grpc
+
+load_dotenv()
+
+MSERV1_PORT = os.getenv("MSERV1_PORT")
 
 class ArchivoServicer(archivo_pb2_grpc.ArchivoServicer):
     def ListarArchivos(self, request, context):
@@ -22,7 +27,7 @@ def main():
     archivo_pb2_grpc.add_ArchivoServicer_to_server(ArchivoServicer(), server)
     server.add_insecure_port('[::]:5001')
     server.start()
-    print("Microservicio mserv1 escuchando en el puerto 5001...")
+    print("Microservicio mserv1 escuchando en el {MSERV1_PORT}...")
     server.wait_for_termination()
 
 if __name__ == '__main__':
