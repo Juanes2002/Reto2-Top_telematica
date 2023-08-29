@@ -7,7 +7,7 @@ import archivo_pb2_grpc
 
 load_dotenv()
 
-MSERV1_PORT = os.getenv("MSERV1_PORT")
+MICSERVER1_PORT = os.getenv("MICSERVER1_PORT")
 
 class ArchivoServicer(archivo_pb2_grpc.ArchivoServicer):
     def ListarArchivos(self, request, context):
@@ -25,9 +25,9 @@ class ArchivoServicer(archivo_pb2_grpc.ArchivoServicer):
 def main():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     archivo_pb2_grpc.add_ArchivoServicer_to_server(ArchivoServicer(), server)
-    server.add_insecure_port('[::]:5001')
+    server.add_insecure_port('[::]:{MICSERVER1_PORT}')
     server.start()
-    print("Microservicio mserv1 escuchando en el {MSERV1_PORT}...")
+    print("Microservicio mserv1 escuchando en el {MICSERVER1_PORT}...")
     server.wait_for_termination()
 
 if __name__ == '__main__':
