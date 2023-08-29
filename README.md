@@ -39,10 +39,6 @@
   mserv1:
   
   ![image](https://github.com/Juanes2002/Reto2-Top_telematica/assets/105470955/280f7ebe-5d84-4312-88f8-bdd2e3767d52)
-  
-  mserv2:
-  
-  ![image](https://github.com/Juanes2002/Reto2-Top_telematica/assets/105470955/280f7ebe-5d84-4312-88f8-bdd2e3767d52)
 
 ## 4. Descripción del Ambiente de Ejecución en Producción:
    blinker==1.6.2
