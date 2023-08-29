@@ -1,5 +1,5 @@
-from flask.cli import load_dotenv
 import grpc
+from dotenv import load_dotenv
 from concurrent import futures
 import os
 import archivo_pb2
